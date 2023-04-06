@@ -1,0 +1,19 @@
+ .name sym.__do_global_dtors_aux
+ .offset 00000000000026a0
+ .file elfedit-gcc-o0
+ endbr64
+ cmp byte [rip + 0xab7d], 0
+ cjmp LABEL2
+ push rbp
+ cmp qword [rip + 0xa942], 0
+ mov rbp, rsp
+ cjmp LABEL6
+ mov rdi, qword [rip + 0xa946]
+ call 0x2310
+LABEL6:
+ call 0x2630
+ mov byte [rip + 0xab55], 1
+ pop rbp
+ ret
+LABEL2:
+ ret

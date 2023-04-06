@@ -1,0 +1,23 @@
+ .name dbg.xstrdup
+ .offset 0000000000006a40
+ .file elfedit-gcc-o1
+ endbr64
+ push rbp
+ push rbx
+ sub rsp, 8
+ mov rbp, rdi
+ mov rcx, 0xffffffffffffffff
+ mov eax, 0
+ repne scasb al, byte [rdi]
+ mov rbx, rcx
+ not rbx
+ mov rdi, rbx
+ call 0x699a
+ mov rdi, rax
+ mov rdx, rbx
+ mov rsi, rbp
+ call 0x2490
+ add rsp, 8
+ pop rbx
+ pop rbp
+ ret

@@ -1,0 +1,5 @@
+*.pyc
+*.h5
+*.csv
+*.log
+*.pkl

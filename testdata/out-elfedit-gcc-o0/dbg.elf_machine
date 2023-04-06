@@ -1,0 +1,83 @@
+ .name dbg.elf_machine
+ .offset 000000000000477e
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x10
+ mov qword [rbp - 8], rdi
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4c9b]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL10
+ mov eax, 3
+ jmp LABEL12
+LABEL10:
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4c7f]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL18
+ mov eax, 6
+ jmp LABEL12
+LABEL18:
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4c64]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL26
+ mov eax, 0xb4
+ jmp LABEL12
+LABEL26:
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4c48]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL34
+ mov eax, 0xb5
+ jmp LABEL12
+LABEL34:
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4c2c]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL42
+ mov eax, 0x3e
+ jmp LABEL12
+LABEL42:
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4c15]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL50
+ mov eax, 0x3e
+ jmp LABEL12
+LABEL50:
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4b69]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL58
+ mov eax, 0
+ jmp LABEL12
+LABEL58:
+ lea rdi, [rip + 0x4be4]
+ call 0x2400
+ mov rdx, rax
+ mov rax, qword [rbp - 8]
+ mov rsi, rax
+ mov rdi, rdx
+ mov eax, 0
+ call 0x4eee
+ mov eax, 0xffffffff
+LABEL12:
+ leave
+ ret

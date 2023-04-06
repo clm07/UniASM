@@ -1,0 +1,132 @@
+ .name dbg.process_file
+ .offset 0000000000004506
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x30
+ mov qword [rbp - 0x28], rdi
+ mov rax, qword fs:[0x28]
+ mov qword [rbp - 8], rax
+ xor eax, eax
+ mov rax, qword [rbp - 0x28]
+ mov esi, 0
+ mov rdi, rax
+ call 0x43c9
+ test eax, eax
+ cjmp LABEL13
+ mov eax, 1
+ jmp LABEL15
+LABEL13:
+ mov rax, qword [rbp - 0x28]
+ lea rsi, [rip + 0x4d7d]
+ mov rdi, rax
+ call 0x2580
+ mov qword [rbp - 0x18], rax
+ cmp qword [rbp - 0x18], 0
+ cjmp LABEL22
+ lea rdi, [rip + 0x4d67]
+ call 0x2400
+ mov rdx, rax
+ mov rax, qword [rbp - 0x28]
+ mov rsi, rax
+ mov rdi, rdx
+ mov eax, 0
+ call 0x4eee
+ mov eax, 1
+ jmp LABEL15
+LABEL22:
+ mov rdx, qword [rbp - 0x18]
+ lea rax, [rbp - 0x10]
+ mov rcx, rdx
+ mov edx, 1
+ mov esi, 8
+ mov rdi, rax
+ call 0x2380
+ cmp rax, 1
+ cjmp LABEL41
+ lea rdi, [rip + 0x4dcf]
+ call 0x2400
+ mov rdx, rax
+ mov rax, qword [rbp - 0x28]
+ mov rsi, rax
+ mov rdi, rdx
+ mov eax, 0
+ call 0x4eee
+ mov rax, qword [rbp - 0x18]
+ mov rdi, rax
+ call 0x23a0
+ mov eax, 1
+ jmp LABEL15
+LABEL41:
+ lea rax, [rbp - 0x10]
+ mov edx, 8
+ lea rsi, [rip + 0x4db5]
+ mov rdi, rax
+ call 0x2470
+ test eax, eax
+ cjmp LABEL61
+ mov rcx, qword [rbp - 0x18]
+ mov rax, qword [rbp - 0x28]
+ mov edx, 0
+ mov rsi, rcx
+ mov rdi, rax
+ call 0x3d8e
+ mov dword [rbp - 0x1c], eax
+ jmp LABEL69
+LABEL61:
+ lea rax, [rbp - 0x10]
+ mov edx, 8
+ lea rsi, [rip + 0x4d82]
+ mov rdi, rax
+ call 0x2470
+ test eax, eax
+ cjmp LABEL76
+ mov rcx, qword [rbp - 0x18]
+ mov rax, qword [rbp - 0x28]
+ mov edx, 1
+ mov rsi, rcx
+ mov rdi, rax
+ call 0x3d8e
+ mov dword [rbp - 0x1c], eax
+ jmp LABEL69
+LABEL76:
+ mov rax, qword [rbp - 0x18]
+ mov rdi, rax
+ call 0x2420
+ mov qword [rip + 0x8bc9], 0
+ mov qword [rip + 0x8bc6], 0
+ mov rdx, qword [rbp - 0x18]
+ mov rax, qword [rbp - 0x28]
+ mov rsi, rdx
+ mov rdi, rax
+ call 0x3ccc
+ mov dword [rbp - 0x1c], eax
+ cmp dword [rbp - 0x1c], 0
+ cjmp LABEL69
+ movzx eax, word [rip + 0x8bf3]
+ cmp ax, 2
+ cjmp LABEL100
+ movzx eax, word [rip + 0x8be6]
+ cmp ax, 3
+ cjmp LABEL69
+LABEL100:
+ mov rdx, qword [rbp - 0x18]
+ mov rax, qword [rbp - 0x28]
+ mov rsi, rdx
+ mov rdi, rax
+ call 0x26e9
+ mov dword [rbp - 0x1c], eax
+LABEL69:
+ mov rax, qword [rbp - 0x18]
+ mov rdi, rax
+ call 0x23a0
+ mov eax, dword [rbp - 0x1c]
+LABEL15:
+ mov rcx, qword [rbp - 8]
+ xor rcx, qword fs:[0x28]
+ cjmp LABEL116
+ call 0x23d0
+LABEL116:
+ leave
+ ret

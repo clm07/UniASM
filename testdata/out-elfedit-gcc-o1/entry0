@@ -1,0 +1,15 @@
+ .name entry0
+ .offset 00000000000025e0
+ .file elfedit-gcc-o1
+ endbr64
+ xor ebp, ebp
+ mov r9, rdx
+ pop rsi
+ mov rdx, rsp
+ and rsp, 0xfffffffffffffff0
+ push rax
+ push rsp
+ lea r8, [rip + 0x44f6]
+ lea rcx, [rip + 0x447f]
+ lea rdi, [rip + 0x11e5]
+ call qword [rip + 0x89ca]

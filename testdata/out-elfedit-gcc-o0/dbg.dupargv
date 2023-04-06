@@ -1,0 +1,73 @@
+ .name dbg.dupargv
+ .offset 0000000000006c8d
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ push rbx
+ sub rsp, 0x28
+ mov qword [rbp - 0x28], rdi
+ cmp qword [rbp - 0x28], 0
+ cjmp LABEL7
+ mov eax, 0
+ jmp LABEL9
+LABEL7:
+ mov dword [rbp - 0x1c], 0
+ jmp LABEL11
+LABEL20:
+ add dword [rbp - 0x1c], 1
+LABEL11:
+ mov eax, dword [rbp - 0x1c]
+ cdqe
+ lea rdx, [rax*8]
+ mov rax, qword [rbp - 0x28]
+ add rax, rdx
+ mov rax, qword [rax]
+ test rax, rax
+ cjmp LABEL20
+ mov eax, dword [rbp - 0x1c]
+ add eax, 1
+ cdqe
+ shl rax, 3
+ mov rdi, rax
+ call 0x7faa
+ mov qword [rbp - 0x18], rax
+ mov dword [rbp - 0x1c], 0
+ jmp LABEL29
+LABEL52:
+ mov eax, dword [rbp - 0x1c]
+ cdqe
+ lea rdx, [rax*8]
+ mov rax, qword [rbp - 0x28]
+ add rax, rdx
+ mov rax, qword [rax]
+ mov edx, dword [rbp - 0x1c]
+ movsxd rdx, edx
+ lea rcx, [rdx*8]
+ mov rdx, qword [rbp - 0x18]
+ lea rbx, [rcx + rdx]
+ mov rdi, rax
+ call 0x80c5
+ mov qword [rbx], rax
+ add dword [rbp - 0x1c], 1
+LABEL29:
+ mov eax, dword [rbp - 0x1c]
+ cdqe
+ lea rdx, [rax*8]
+ mov rax, qword [rbp - 0x28]
+ add rax, rdx
+ mov rax, qword [rax]
+ test rax, rax
+ cjmp LABEL52
+ mov eax, dword [rbp - 0x1c]
+ cdqe
+ lea rdx, [rax*8]
+ mov rax, qword [rbp - 0x18]
+ add rax, rdx
+ mov qword [rax], 0
+ mov rax, qword [rbp - 0x18]
+LABEL9:
+ add rsp, 0x28
+ pop rbx
+ pop rbp
+ ret

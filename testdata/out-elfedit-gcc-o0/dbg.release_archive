@@ -1,0 +1,35 @@
+ .name dbg.release_archive
+ .offset 0000000000006566
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x10
+ mov qword [rbp - 8], rdi
+ mov rax, qword [rbp - 8]
+ mov rax, qword [rax]
+ mov rdi, rax
+ call 0x2320
+ mov rax, qword [rbp - 8]
+ mov rax, qword [rax + 0x18]
+ mov rdi, rax
+ call 0x2320
+ mov rax, qword [rbp - 8]
+ mov rax, qword [rax + 0x20]
+ mov rdi, rax
+ call 0x2320
+ mov rax, qword [rbp - 8]
+ mov rax, qword [rax + 0x30]
+ mov rdi, rax
+ call 0x2320
+ mov rax, qword [rbp - 8]
+ mov qword [rax], 0
+ mov rax, qword [rbp - 8]
+ mov qword [rax + 0x18], 0
+ mov rax, qword [rbp - 8]
+ mov qword [rax + 0x20], 0
+ mov rax, qword [rbp - 8]
+ mov qword [rax + 0x30], 0
+ nop
+ leave
+ ret

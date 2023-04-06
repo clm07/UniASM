@@ -1,0 +1,96 @@
+ .name dbg.writeargv
+ .offset 0000000000005dd1
+ .file elfedit-gcc-o1
+ endbr64
+ test rsi, rsi
+ cjmp LABEL2
+ push r15
+ push r14
+ push r13
+ push r12
+ push rbp
+ push rbx
+ sub rsp, 8
+ mov r15, rdi
+ mov rbp, rsi
+ mov rbx, qword [rdi]
+ lea r13, [rip + 0x25c4]
+ movabs r14, 0x400000000000021
+ mov eax, 0
+ test rbx, rbx
+ cjmp LABEL17
+LABEL31:
+ movzx eax, byte [rbx]
+ test al, al
+ cjmp LABEL20
+LABEL49:
+ cmp qword [r15], rbx
+ cjmp LABEL22
+LABEL62:
+ mov rsi, rbp
+ mov edi, 0xa
+ call 0x2430
+ cmp eax, 0xffffffff
+ cjmp LABEL27
+ add r15, 8
+ mov rbx, qword [r15]
+ test rbx, rbx
+ cjmp LABEL31
+ mov eax, 0
+ jmp LABEL17
+LABEL57:
+ bt r14, rax
+ cjmp LABEL35
+LABEL53:
+ mov rsi, rbp
+ mov edi, 0x5c
+ call 0x2430
+ cmp eax, 0xffffffff
+ cjmp LABEL40
+LABEL35:
+ mov rsi, rbp
+ mov edi, r12d
+ call 0x2430
+ cmp eax, 0xffffffff
+ cjmp LABEL45
+ add rbx, 1
+ movzx eax, byte [rbx]
+ test al, al
+ cjmp LABEL49
+LABEL20:
+ movsx r12d, al
+ movzx edx, al
+ test byte [r13 + rdx*2], 0x40
+ cjmp LABEL53
+ sub eax, 0x22
+ cmp al, 0x3a
+ cjmp LABEL35
+ jmp LABEL57
+LABEL22:
+ mov rsi, rbp
+ lea rdi, [rip + 0x22ac]
+ call 0x2420
+ cmp eax, 0xffffffff
+ cjmp LABEL62
+ mov eax, 1
+ jmp LABEL17
+LABEL2:
+ mov eax, 1
+ ret
+LABEL40:
+ mov eax, 1
+ jmp LABEL17
+LABEL45:
+ mov eax, 1
+LABEL17:
+ add rsp, 8
+ pop rbx
+ pop rbp
+ pop r12
+ pop r13
+ pop r14
+ pop r15
+ ret
+LABEL27:
+ mov eax, 1
+ jmp LABEL17

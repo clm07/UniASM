@@ -1,0 +1,37 @@
+ .name dbg.xrealloc
+ .offset 0000000000008059
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x20
+ mov qword [rbp - 0x18], rdi
+ mov qword [rbp - 0x20], rsi
+ cmp qword [rbp - 0x20], 0
+ cjmp LABEL7
+ mov qword [rbp - 0x20], 1
+LABEL7:
+ cmp qword [rbp - 0x18], 0
+ cjmp LABEL10
+ mov rax, qword [rbp - 0x20]
+ mov rdi, rax
+ call 0x2500
+ mov qword [rbp - 8], rax
+ jmp LABEL15
+LABEL10:
+ mov rdx, qword [rbp - 0x20]
+ mov rax, qword [rbp - 0x18]
+ mov rsi, rdx
+ mov rdi, rax
+ call 0x2540
+ mov qword [rbp - 8], rax
+LABEL15:
+ cmp qword [rbp - 8], 0
+ cjmp LABEL23
+ mov rax, qword [rbp - 0x20]
+ mov rdi, rax
+ call 0x7f04
+LABEL23:
+ mov rax, qword [rbp - 8]
+ leave
+ ret

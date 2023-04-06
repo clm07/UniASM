@@ -1,0 +1,18 @@
+ .name sym.register_tm_clones
+ .offset 0000000000002640
+ .file elfedit-gcc-o1
+ lea rdi, [rip + 0x8b69]
+ lea rsi, [rip + 0x8b62]
+ sub rsi, rdi
+ mov rax, rsi
+ shr rsi, 0x3f
+ sar rax, 3
+ add rsi, rax
+ sar rsi, 1
+ cjmp LABEL8
+ mov rax, qword [rip + 0x897d]
+ test rax, rax
+ cjmp LABEL8
+ jmp rax
+LABEL8:
+ ret

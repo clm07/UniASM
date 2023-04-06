@@ -1,0 +1,17 @@
+ .name dbg.xexit
+ .offset 0000000000007e9b
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x10
+ mov dword [rbp - 4], edi
+ mov rax, qword [rip + 0x54b7]
+ test rax, rax
+ cjmp LABEL7
+ mov rax, qword [rip + 0x54ab]
+ call rax
+LABEL7:
+ mov eax, dword [rbp - 4]
+ mov edi, eax
+ call 0x25b0

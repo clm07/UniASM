@@ -1,0 +1,111 @@
+ .name dbg.usage
+ .offset 000000000000494b
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ push rbx
+ sub rsp, 0x28
+ mov qword [rbp - 0x28], rdi
+ mov dword [rbp - 0x2c], esi
+ lea rax, [rip + 0x4a5c]
+ mov esi, 0
+ mov rdi, rax
+ mov eax, 0
+ call 0x7b2b
+ mov qword [rbp - 0x18], rax
+ mov dword [rbp - 0x1c], 1
+ jmp LABEL14
+LABEL31:
+ mov eax, dword [rbp - 0x1c]
+ shl rax, 4
+ mov rdx, rax
+ lea rax, [rip + 0x81d2]
+ mov rdx, qword [rdx + rax]
+ mov rsi, qword [rbp - 0x18]
+ mov rax, qword [rbp - 0x18]
+ mov r8d, 0
+ mov rcx, rdx
+ lea rdx, [rip + 0x4b59]
+ mov rdi, rax
+ mov eax, 0
+ call 0x7c60
+ mov qword [rbp - 0x18], rax
+ add dword [rbp - 0x1c], 1
+LABEL14:
+ cmp dword [rbp - 0x1c], 0xf
+ cjmp LABEL31
+ mov rbx, qword [rip + 0x866c]
+ lea rdi, [rip + 0x4b35]
+ call 0x2400
+ mov rcx, rax
+ mov rax, qword [rbp - 0x28]
+ mov rdx, rbx
+ mov rsi, rcx
+ mov rdi, rax
+ mov eax, 0
+ call 0x24b0
+ lea rdi, [rip + 0x4b37]
+ call 0x2400
+ mov rdx, rax
+ mov rax, qword [rbp - 0x28]
+ mov rsi, rdx
+ mov rdi, rax
+ mov eax, 0
+ call 0x24b0
+ lea rdi, [rip + 0x4b39]
+ call 0x2400
+ mov rdx, rax
+ mov rax, qword [rbp - 0x28]
+ mov rsi, rdx
+ mov rdi, rax
+ mov eax, 0
+ call 0x24b0
+ lea rdi, [rip + 0x4b29]
+ call 0x2400
+ mov rsi, rax
+ mov rcx, qword [rbp - 0x18]
+ mov rdx, qword [rbp - 0x18]
+ mov rax, qword [rbp - 0x28]
+ mov rdi, rax
+ mov eax, 0
+ call 0x24b0
+ lea rdi, [rip + 0x4d09]
+ call 0x2400
+ mov rdx, rax
+ mov rax, qword [rbp - 0x28]
+ mov rsi, rdx
+ mov rdi, rax
+ mov eax, 0
+ call 0x24b0
+ mov rbx, qword [rip + 0x85ae]
+ lea rdi, [rip + 0x4daf]
+ call 0x2400
+ mov rcx, rax
+ mov rax, qword [rbp - 0x28]
+ mov rdx, rbx
+ mov rsi, rcx
+ mov rdi, rax
+ mov eax, 0
+ call 0x24b0
+ mov eax, 0x3c
+ test al, al
+ cjmp LABEL87
+ cmp dword [rbp - 0x2c], 0
+ cjmp LABEL87
+ lea rdi, [rip + 0x4df1]
+ call 0x2400
+ mov rcx, rax
+ mov rax, qword [rbp - 0x28]
+ lea rdx, [rip + 0x4df7]
+ mov rsi, rcx
+ mov rdi, rax
+ mov eax, 0
+ call 0x24b0
+LABEL87:
+ mov rax, qword [rbp - 0x18]
+ mov rdi, rax
+ call 0x2320
+ mov eax, dword [rbp - 0x2c]
+ mov edi, eax
+ call 0x25b0

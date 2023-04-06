@@ -1,0 +1,205 @@
+ .name dbg.buildargv
+ .offset 0000000000006e66
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ push rbx
+ sub rsp, 0x58
+ mov qword [rbp - 0x58], rdi
+ mov dword [rbp - 0x44], 0
+ mov dword [rbp - 0x40], 0
+ mov dword [rbp - 0x3c], 0
+ mov dword [rbp - 0x38], 0
+ mov dword [rbp - 0x34], 0
+ mov qword [rbp - 0x28], 0
+ mov rax, qword [rbp - 0x58]
+ test rax, rax
+ cjmp LABEL14
+ mov rax, qword [rbp - 0x58]
+ mov rdi, rax
+ call 0x23c0
+ add rax, 1
+ mov rdi, rax
+ call 0x7faa
+ mov qword [rbp - 0x18], rax
+LABEL174:
+ lea rax, [rbp - 0x58]
+ mov rdi, rax
+ call 0x6dc0
+ cmp dword [rbp - 0x34], 0
+ cjmp LABEL26
+ mov eax, dword [rbp - 0x34]
+ sub eax, 1
+ cmp dword [rbp - 0x38], eax
+ cjmp LABEL30
+LABEL26:
+ cmp qword [rbp - 0x28], 0
+ cjmp LABEL32
+ mov dword [rbp - 0x34], 8
+ mov eax, dword [rbp - 0x34]
+ cdqe
+ shl rax, 3
+ mov rdi, rax
+ call 0x7faa
+ mov qword [rbp - 0x20], rax
+ jmp LABEL40
+LABEL32:
+ shl dword [rbp - 0x34], 1
+ mov eax, dword [rbp - 0x34]
+ cdqe
+ lea rdx, [rax*8]
+ mov rax, qword [rbp - 0x28]
+ mov rsi, rdx
+ mov rdi, rax
+ call 0x8059
+ mov qword [rbp - 0x20], rax
+LABEL40:
+ mov rax, qword [rbp - 0x20]
+ mov qword [rbp - 0x28], rax
+ mov eax, dword [rbp - 0x38]
+ cdqe
+ lea rdx, [rax*8]
+ mov rax, qword [rbp - 0x28]
+ add rax, rdx
+ mov qword [rax], 0
+LABEL30:
+ mov rax, qword [rbp - 0x18]
+ mov qword [rbp - 0x30], rax
+ jmp LABEL60
+LABEL149:
+ mov rax, qword [rbp - 0x58]
+ movzx eax, byte [rax]
+ movsx eax, al
+ movzx eax, al
+ cdqe
+ lea rdx, [rax + rax]
+ lea rax, [rip + 0x32a6]
+ movzx eax, word [rdx + rax]
+ movzx eax, ax
+ and eax, 0x40
+ test eax, eax
+ cjmp LABEL72
+ cmp dword [rbp - 0x44], 0
+ cjmp LABEL72
+ cmp dword [rbp - 0x40], 0
+ cjmp LABEL72
+ cmp dword [rbp - 0x3c], 0
+ cjmp LABEL78
+LABEL72:
+ cmp dword [rbp - 0x3c], 0
+ cjmp LABEL80
+ mov dword [rbp - 0x3c], 0
+ mov rdx, qword [rbp - 0x58]
+ mov rax, qword [rbp - 0x30]
+ lea rcx, [rax + 1]
+ mov qword [rbp - 0x30], rcx
+ movzx edx, byte [rdx]
+ mov byte [rax], dl
+ jmp LABEL88
+LABEL80:
+ mov rax, qword [rbp - 0x58]
+ movzx eax, byte [rax]
+ cmp al, 0x5c
+ cjmp LABEL92
+ mov dword [rbp - 0x3c], 1
+ jmp LABEL88
+LABEL92:
+ cmp dword [rbp - 0x44], 0
+ cjmp LABEL96
+ mov rax, qword [rbp - 0x58]
+ movzx eax, byte [rax]
+ cmp al, 0x27
+ cjmp LABEL100
+ mov dword [rbp - 0x44], 0
+ jmp LABEL88
+LABEL100:
+ mov rdx, qword [rbp - 0x58]
+ mov rax, qword [rbp - 0x30]
+ lea rcx, [rax + 1]
+ mov qword [rbp - 0x30], rcx
+ movzx edx, byte [rdx]
+ mov byte [rax], dl
+ jmp LABEL88
+LABEL96:
+ cmp dword [rbp - 0x40], 0
+ cjmp LABEL111
+ mov rax, qword [rbp - 0x58]
+ movzx eax, byte [rax]
+ cmp al, 0x22
+ cjmp LABEL115
+ mov dword [rbp - 0x40], 0
+ jmp LABEL88
+LABEL115:
+ mov rdx, qword [rbp - 0x58]
+ mov rax, qword [rbp - 0x30]
+ lea rcx, [rax + 1]
+ mov qword [rbp - 0x30], rcx
+ movzx edx, byte [rdx]
+ mov byte [rax], dl
+ jmp LABEL88
+LABEL111:
+ mov rax, qword [rbp - 0x58]
+ movzx eax, byte [rax]
+ cmp al, 0x27
+ cjmp LABEL128
+ mov dword [rbp - 0x44], 1
+ jmp LABEL88
+LABEL128:
+ mov rax, qword [rbp - 0x58]
+ movzx eax, byte [rax]
+ cmp al, 0x22
+ cjmp LABEL134
+ mov dword [rbp - 0x40], 1
+ jmp LABEL88
+LABEL134:
+ mov rdx, qword [rbp - 0x58]
+ mov rax, qword [rbp - 0x30]
+ lea rcx, [rax + 1]
+ mov qword [rbp - 0x30], rcx
+ movzx edx, byte [rdx]
+ mov byte [rax], dl
+LABEL88:
+ mov rax, qword [rbp - 0x58]
+ add rax, 1
+ mov qword [rbp - 0x58], rax
+LABEL60:
+ mov rax, qword [rbp - 0x58]
+ movzx eax, byte [rax]
+ test al, al
+ cjmp LABEL149
+LABEL78:
+ mov rax, qword [rbp - 0x30]
+ mov byte [rax], 0
+ mov eax, dword [rbp - 0x38]
+ cdqe
+ lea rdx, [rax*8]
+ mov rax, qword [rbp - 0x28]
+ lea rbx, [rdx + rax]
+ mov rax, qword [rbp - 0x18]
+ mov rdi, rax
+ call 0x80c5
+ mov qword [rbx], rax
+ add dword [rbp - 0x38], 1
+ mov eax, dword [rbp - 0x38]
+ cdqe
+ lea rdx, [rax*8]
+ mov rax, qword [rbp - 0x28]
+ add rax, rdx
+ mov qword [rax], 0
+ lea rax, [rbp - 0x58]
+ mov rdi, rax
+ call 0x6dc0
+ mov rax, qword [rbp - 0x58]
+ movzx eax, byte [rax]
+ test al, al
+ cjmp LABEL174
+ mov rax, qword [rbp - 0x18]
+ mov rdi, rax
+ call 0x2320
+LABEL14:
+ mov rax, qword [rbp - 0x28]
+ add rsp, 0x58
+ pop rbx
+ pop rbp
+ ret

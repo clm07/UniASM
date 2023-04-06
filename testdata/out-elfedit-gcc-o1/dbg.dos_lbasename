@@ -1,0 +1,35 @@
+ .name dbg.dos_lbasename
+ .offset 0000000000006871
+ .file elfedit-gcc-o1
+ endbr64
+ mov rax, rdi
+ movzx ecx, byte [rdi]
+ lea rdx, [rip + 0x1b3e]
+ test byte [rdx + rcx*2], 0x88
+ cjmp LABEL5
+ cmp byte [rdi + 1], 0x3a
+ cjmp LABEL7
+LABEL5:
+ movzx edx, byte [rax]
+ test dl, dl
+ cjmp LABEL10
+ lea rcx, [rax + 1]
+ jmp LABEL12
+LABEL7:
+ add rax, 2
+ jmp LABEL5
+LABEL21:
+ mov rax, rcx
+LABEL23:
+ add rcx, 1
+ movzx edx, byte [rcx - 1]
+ test dl, dl
+ cjmp LABEL10
+LABEL12:
+ cmp dl, 0x2f
+ cjmp LABEL21
+ cmp dl, 0x5c
+ cjmp LABEL23
+ jmp LABEL21
+LABEL10:
+ ret

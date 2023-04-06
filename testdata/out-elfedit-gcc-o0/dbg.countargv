@@ -1,0 +1,29 @@
+ .name dbg.countargv
+ .offset 0000000000007705
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ mov qword [rbp - 0x18], rdi
+ cmp qword [rbp - 0x18], 0
+ cjmp LABEL5
+ mov eax, 0
+ jmp LABEL7
+LABEL5:
+ mov dword [rbp - 4], 0
+ jmp LABEL9
+LABEL18:
+ add dword [rbp - 4], 1
+LABEL9:
+ mov eax, dword [rbp - 4]
+ cdqe
+ lea rdx, [rax*8]
+ mov rax, qword [rbp - 0x18]
+ add rax, rdx
+ mov rax, qword [rax]
+ test rax, rax
+ cjmp LABEL18
+ mov eax, dword [rbp - 4]
+LABEL7:
+ pop rbp
+ ret

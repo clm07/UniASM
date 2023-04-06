@@ -1,0 +1,30 @@
+ .name dbg.xcalloc
+ .offset 00000000000069c2
+ .file elfedit-gcc-o1
+ endbr64
+ push rbp
+ push rbx
+ sub rsp, 8
+ test rdi, rdi
+ cjmp LABEL5
+ mov rbx, rdi
+ mov rbp, rsi
+ test rsi, rsi
+ cjmp LABEL9
+LABEL5:
+ mov ebp, 1
+ mov ebx, 1
+LABEL9:
+ mov rsi, rbp
+ mov rdi, rbx
+ call 0x2460
+ test rax, rax
+ cjmp LABEL16
+ add rsp, 8
+ pop rbx
+ pop rbp
+ ret
+LABEL16:
+ imul rbx, rbp
+ mov rdi, rbx
+ call 0x6913

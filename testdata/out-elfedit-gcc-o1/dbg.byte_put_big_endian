@@ -1,0 +1,32 @@
+ .name dbg.byte_put_big_endian
+ .offset 00000000000046a8
+ .file elfedit-gcc-o1
+ endbr64
+ push rbx
+ mov ebx, edx
+ cmp edx, 8
+ cjmp LABEL4
+ lea eax, [rdx - 1]
+ add rax, rdi
+ test edx, edx
+ cjmp LABEL8
+LABEL14:
+ mov byte [rax], sil
+ shr rsi, 8
+ mov rdx, rax
+ sub rax, 1
+ cmp rdx, rdi
+ cjmp LABEL14
+LABEL8:
+ pop rbx
+ ret
+LABEL4:
+ mov edx, 5
+ lea rsi, [rip + 0x3477]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov esi, ebx
+ mov eax, 0
+ call 0x4427
+ call 0x2350

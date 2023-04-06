@@ -1,0 +1,63 @@
+ .name dbg.warn
+ .offset 000000000000500f
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ push rbx
+ sub rsp, 0xe8
+ mov qword [rbp - 0xe8], rdi
+ mov qword [rbp - 0xb8], rsi
+ mov qword [rbp - 0xb0], rdx
+ mov qword [rbp - 0xa8], rcx
+ mov qword [rbp - 0xa0], r8
+ mov qword [rbp - 0x98], r9
+ test al, al
+ cjmp LABEL12
+ movaps xmmword [rbp - 0x90], xmm0
+ movaps xmmword [rbp - 0x80], xmm1
+ movaps xmmword [rbp - 0x70], xmm2
+ movaps xmmword [rbp - 0x60], xmm3
+ movaps xmmword [rbp - 0x50], xmm4
+ movaps xmmword [rbp - 0x40], xmm5
+ movaps xmmword [rbp - 0x30], xmm6
+ movaps xmmword [rbp - 0x20], xmm7
+LABEL12:
+ mov rax, qword fs:[0x28]
+ mov qword [rbp - 0xc8], rax
+ xor eax, eax
+ mov rax, qword [rip + 0x8157]
+ mov rdi, rax
+ call 0x2510
+ mov dword [rbp - 0xe0], 8
+ mov dword [rbp - 0xdc], 0x30
+ lea rax, [rbp + 0x10]
+ mov qword [rbp - 0xd8], rax
+ lea rax, [rbp - 0xc0]
+ mov qword [rbp - 0xd0], rax
+ mov rbx, qword [rip + 0x7f7b]
+ lea rdi, [rip + 0x4a80]
+ call 0x2400
+ mov rcx, rax
+ mov rax, qword [rip + 0x8145]
+ mov rdx, rbx
+ mov rsi, rcx
+ mov rdi, rax
+ mov eax, 0
+ call 0x24b0
+ mov rax, qword [rip + 0x812b]
+ lea rdx, [rbp - 0xe0]
+ mov rcx, qword [rbp - 0xe8]
+ mov rsi, rcx
+ mov rdi, rax
+ call 0x2590
+ nop
+ mov rax, qword [rbp - 0xc8]
+ xor rax, qword fs:[0x28]
+ cjmp LABEL52
+ call 0x23d0
+LABEL52:
+ add rsp, 0xe8
+ pop rbx
+ pop rbp
+ ret

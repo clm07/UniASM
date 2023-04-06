@@ -1,0 +1,37 @@
+ .name dbg.elf_class
+ .offset 0000000000003456
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ mov dword [rbp - 4], edi
+ cmp dword [rbp - 4], 0xb5
+ cjmp LABEL5
+ cmp dword [rbp - 4], 0xb4
+ cjmp LABEL7
+ cmp dword [rbp - 4], 0x3e
+ cjmp LABEL9
+ cmp dword [rbp - 4], 0x3e
+ cjmp LABEL5
+ cmp dword [rbp - 4], 6
+ cjmp LABEL13
+ cmp dword [rbp - 4], 6
+ cjmp LABEL5
+ cmp dword [rbp - 4], 0
+ cjmp LABEL9
+ cmp dword [rbp - 4], 3
+ cjmp LABEL5
+LABEL13:
+ mov eax, 1
+ jmp LABEL21
+LABEL7:
+ mov eax, 2
+ jmp LABEL21
+LABEL9:
+ mov eax, 3
+ jmp LABEL21
+LABEL5:
+ mov eax, 3
+LABEL21:
+ pop rbp
+ ret

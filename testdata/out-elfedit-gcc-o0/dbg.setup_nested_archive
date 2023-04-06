@@ -1,0 +1,80 @@
+ .name dbg.setup_nested_archive
+ .offset 0000000000006422
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0xc0
+ mov qword [rbp - 0xb8], rdi
+ mov qword [rbp - 0xc0], rsi
+ mov rax, qword fs:[0x28]
+ mov qword [rbp - 8], rax
+ xor eax, eax
+ mov rax, qword [rbp - 0xb8]
+ mov rax, qword [rax]
+ test rax, rax
+ cjmp LABEL12
+ mov rax, qword [rbp - 0xb8]
+ mov rax, qword [rax]
+ mov rdx, qword [rbp - 0xc0]
+ mov rsi, rdx
+ mov rdi, rax
+ call 0x24a0
+ test eax, eax
+ cjmp LABEL12
+ mov eax, 0
+ jmp LABEL22
+LABEL12:
+ mov rax, qword [rbp - 0xb8]
+ mov rax, qword [rax + 8]
+ test rax, rax
+ cjmp LABEL26
+ mov rax, qword [rbp - 0xb8]
+ mov rax, qword [rax + 8]
+ mov rdi, rax
+ call 0x23a0
+ mov rax, qword [rbp - 0xb8]
+ mov qword [rax + 8], 0
+LABEL26:
+ mov rax, qword [rbp - 0xb8]
+ mov rdi, rax
+ call 0x6566
+ mov rax, qword [rbp - 0xc0]
+ lea rsi, [rip + 0x3b6c]
+ mov rdi, rax
+ call 0x2580
+ mov qword [rbp - 0xa8], rax
+ cmp qword [rbp - 0xa8], 0
+ cjmp LABEL42
+ mov eax, 1
+ jmp LABEL22
+LABEL42:
+ mov rax, qword [rbp - 0xa8]
+ mov rdi, rax
+ call 0x24e0
+ mov edx, eax
+ lea rax, [rbp - 0xa0]
+ mov rsi, rax
+ mov edi, edx
+ call 0x81b0
+ test eax, eax
+ cjmp LABEL54
+ mov eax, 1
+ jmp LABEL22
+LABEL54:
+ mov rcx, qword [rbp - 0x70]
+ mov rdx, qword [rbp - 0xa8]
+ mov rsi, qword [rbp - 0xc0]
+ mov rax, qword [rbp - 0xb8]
+ mov r9d, 0
+ mov r8d, 0
+ mov rdi, rax
+ call 0x5feb
+LABEL22:
+ mov rcx, qword [rbp - 8]
+ xor rcx, qword fs:[0x28]
+ cjmp LABEL67
+ call 0x23d0
+LABEL67:
+ leave
+ ret

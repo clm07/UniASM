@@ -1,0 +1,31 @@
+ .name dbg.freeargv
+ .offset 0000000000006d77
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ push rbx
+ sub rsp, 0x18
+ mov qword [rbp - 0x18], rdi
+ cmp qword [rbp - 0x18], 0
+ cjmp LABEL7
+ mov rbx, qword [rbp - 0x18]
+ jmp LABEL9
+LABEL16:
+ mov rax, qword [rbx]
+ mov rdi, rax
+ call 0x2320
+ add rbx, 8
+LABEL9:
+ mov rax, qword [rbx]
+ test rax, rax
+ cjmp LABEL16
+ mov rax, qword [rbp - 0x18]
+ mov rdi, rax
+ call 0x2320
+LABEL7:
+ nop
+ add rsp, 0x18
+ pop rbx
+ pop rbp
+ ret

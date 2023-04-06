@@ -1,0 +1,44 @@
+ .name dbg.elf_type
+ .offset 00000000000027e4
+ .file elfedit-gcc-o1
+ push rbx
+ mov rbx, rdi
+ lea rsi, [rip + 0x4857]
+ call 0x2330
+ mov edx, eax
+ mov eax, 1
+ test edx, edx
+ cjmp LABEL7
+ lea rsi, [rip + 0x4844]
+ mov rdi, rbx
+ call 0x2330
+ mov edx, eax
+ mov eax, 2
+ test edx, edx
+ cjmp LABEL7
+ lea rsi, [rip + 0x482f]
+ mov rdi, rbx
+ call 0x2330
+ mov edx, eax
+ mov eax, 3
+ test edx, edx
+ cjmp LABEL7
+ lea rsi, [rip + 0x47ed]
+ mov rdi, rbx
+ call 0x2330
+ test eax, eax
+ cjmp LABEL26
+LABEL7:
+ pop rbx
+ ret
+LABEL26:
+ mov edx, 5
+ lea rsi, [rip + 0x47ff]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rsi, rbx
+ mov eax, 0
+ call 0x4427
+ mov eax, 0xffffffff
+ jmp LABEL7

@@ -1,0 +1,56 @@
+ .name dbg.elf_type
+ .offset 0000000000004896
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x10
+ mov qword [rbp - 8], rdi
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4bc0]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL10
+ mov eax, 1
+ jmp LABEL12
+LABEL10:
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4ba3]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL18
+ mov eax, 2
+ jmp LABEL12
+LABEL18:
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4b8a]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL26
+ mov eax, 3
+ jmp LABEL12
+LABEL26:
+ mov rax, qword [rbp - 8]
+ lea rsi, [rip + 0x4ab4]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL34
+ mov eax, 0
+ jmp LABEL12
+LABEL34:
+ lea rdi, [rip + 0x4b56]
+ call 0x2400
+ mov rdx, rax
+ mov rax, qword [rbp - 8]
+ mov rsi, rax
+ mov rdi, rdx
+ mov eax, 0
+ call 0x4eee
+ mov eax, 0xffffffff
+LABEL12:
+ leave
+ ret

@@ -1,0 +1,52 @@
+ .name dbg.dos_lbasename
+ .offset 0000000000007df1
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ mov qword [rbp - 0x18], rdi
+ mov rax, qword [rbp - 0x18]
+ movzx eax, byte [rax]
+ movsx eax, al
+ movzx eax, al
+ cdqe
+ lea rdx, [rax + rax]
+ lea rax, [rip + 0x2409]
+ movzx eax, word [rdx + rax]
+ movzx eax, ax
+ and eax, 0x88
+ test eax, eax
+ cjmp LABEL15
+ mov rax, qword [rbp - 0x18]
+ add rax, 1
+ movzx eax, byte [rax]
+ cmp al, 0x3a
+ cjmp LABEL15
+ add qword [rbp - 0x18], 2
+LABEL15:
+ mov rax, qword [rbp - 0x18]
+ mov qword [rbp - 8], rax
+ jmp LABEL24
+LABEL40:
+ mov rax, qword [rbp - 0x18]
+ movzx eax, byte [rax]
+ cmp al, 0x2f
+ cjmp LABEL28
+ mov rax, qword [rbp - 0x18]
+ movzx eax, byte [rax]
+ cmp al, 0x5c
+ cjmp LABEL32
+LABEL28:
+ mov rax, qword [rbp - 0x18]
+ add rax, 1
+ mov qword [rbp - 8], rax
+LABEL32:
+ add qword [rbp - 0x18], 1
+LABEL24:
+ mov rax, qword [rbp - 0x18]
+ movzx eax, byte [rax]
+ test al, al
+ cjmp LABEL40
+ mov rax, qword [rbp - 8]
+ pop rbp
+ ret

@@ -1,0 +1,143 @@
+ .name dbg.make_qualified_name
+ .offset 00000000000058d5
+ .file elfedit-gcc-o1
+ endbr64
+ push r15
+ push r14
+ push r13
+ push r12
+ push rbp
+ push rbx
+ sub rsp, 8
+ mov rbx, rdi
+ mov r12, rsi
+ mov rbp, rdx
+ mov edx, 5
+ lea rsi, [rip + 0x22dd]
+ mov edi, 0
+ call 0x23c0
+ mov r13, rax
+ mov r14, qword [rbx]
+ mov rsi, 0xffffffffffffffff
+ mov eax, 0
+ mov rcx, rsi
+ mov rdi, r14
+ repne scasb al, byte [rdi]
+ mov rdx, rcx
+ not rdx
+ mov rcx, rsi
+ mov rdi, rbp
+ repne scasb al, byte [rdi]
+ mov rax, rcx
+ not rax
+ lea rdx, [rdx + rax - 2]
+ lea r15, [rdx + 3]
+ cmp dword [rbx + 0x50], 0
+ cjmp LABEL32
+ cmp qword [rbx + 0x40], 0
+ cjmp LABEL34
+ mov rdi, qword [r12]
+ test rdi, rdi
+ cjmp LABEL37
+ mov rcx, 0xffffffffffffffff
+ mov eax, 0
+ repne scasb al, byte [rdi]
+ not rcx
+ lea r15, [rdx + rcx + 4]
+LABEL69:
+ mov rdi, r15
+ call 0x24c0
+ mov rbx, rax
+ test rax, rax
+ cjmp LABEL47
+ mov rax, qword [r12]
+ test rax, rax
+ cjmp LABEL50
+ push rbp
+ push rax
+ mov r9, r14
+ lea r8, [rip + 0x2245]
+ mov rcx, 0xffffffffffffffff
+ mov edx, 1
+ mov rsi, r15
+ mov rdi, rbx
+ mov eax, 0
+ call 0x2310
+ add rsp, 0x10
+ jmp LABEL62
+LABEL37:
+ mov rcx, 0xffffffffffffffff
+ mov eax, 0
+ mov rdi, r13
+ repne scasb al, byte [rdi]
+ not rcx
+ lea r15, [rdx + rcx + 4]
+ jmp LABEL69
+LABEL32:
+ mov rdi, r15
+ call 0x24c0
+ mov rbx, rax
+ test rax, rax
+ cjmp LABEL47
+ sub rsp, 8
+ push rbp
+ mov r9, r14
+ lea r8, [rip + 0x21f4]
+ mov rcx, 0xffffffffffffffff
+ mov edx, 1
+ mov rsi, r15
+ mov rdi, rax
+ mov eax, 0
+ call 0x2310
+ add rsp, 0x10
+LABEL62:
+ mov rax, rbx
+ add rsp, 8
+ pop rbx
+ pop rbp
+ pop r12
+ pop r13
+ pop r14
+ pop r15
+ ret
+LABEL47:
+ mov edx, 5
+ lea rsi, [rip + 0x2143]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov eax, 0
+ call 0x4427
+ mov ebx, 0
+ jmp LABEL62
+LABEL50:
+ push rbp
+ push r13
+ mov r9, r14
+ lea r8, [rip + 0x2180]
+ mov rcx, 0xffffffffffffffff
+ mov edx, 1
+ mov rsi, r15
+ mov rdi, rbx
+ mov eax, 0
+ call 0x2310
+ add rsp, 0x10
+ jmp LABEL62
+LABEL34:
+ mov rdi, r15
+ call 0x24c0
+ mov rbx, rax
+ test rax, rax
+ cjmp LABEL47
+ sub rsp, 8
+ push rbp
+ mov r9, r14
+ lea r8, [rip + 0x2151]
+ mov rcx, 0xffffffffffffffff
+ mov edx, 1
+ mov rsi, r15
+ mov rdi, rbx
+ mov eax, 0
+ call 0x2310
+ add rsp, 0x10
+ jmp LABEL62

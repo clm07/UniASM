@@ -1,0 +1,13 @@
+ .name dbg.lbasename
+ .offset 0000000000007e7d
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 8
+ mov qword [rbp - 8], rdi
+ mov rax, qword [rbp - 8]
+ mov rdi, rax
+ call 0x7dae
+ leave
+ ret

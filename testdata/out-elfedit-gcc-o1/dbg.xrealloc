@@ -1,0 +1,24 @@
+ .name dbg.xrealloc
+ .offset 0000000000006a09
+ .file elfedit-gcc-o1
+ endbr64
+ push rbx
+ test rsi, rsi
+ mov ebx, 1
+ cmovne rbx, rsi
+ test rdi, rdi
+ cjmp LABEL6
+ mov rsi, rbx
+ call 0x2500
+LABEL15:
+ test rax, rax
+ cjmp LABEL10
+ pop rbx
+ ret
+LABEL6:
+ mov rdi, rbx
+ call 0x24c0
+ jmp LABEL15
+LABEL10:
+ mov rdi, rbx
+ call 0x6913

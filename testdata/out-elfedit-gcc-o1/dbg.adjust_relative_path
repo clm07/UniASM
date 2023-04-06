@@ -1,0 +1,95 @@
+ .name dbg.adjust_relative_path
+ .offset 0000000000004f3f
+ .file elfedit-gcc-o1
+ endbr64
+ push r15
+ push r14
+ push r13
+ push r12
+ push rbp
+ push rbx
+ sub rsp, 8
+ mov r12, rdi
+ mov r13, rsi
+ mov rbp, rdx
+ call 0x68bd
+ cmp byte [r13], 0x2f
+ cjmp LABEL13
+ mov rbx, rax
+ cmp r12, rax
+ cjmp LABEL13
+ sub rbx, r12
+ lea r15, [rbx + rbp]
+ lea rdi, [r15 + 1]
+ cmp rbx, rbp
+ mov rax, rbp
+ cmovae rax, rbx
+ cmp rdi, rax
+ cjmp LABEL24
+ call 0x24c0
+ mov r14, rax
+ test rax, rax
+ cjmp LABEL28
+ mov rdx, rbx
+ mov rsi, r12
+ mov rdi, rax
+ call 0x2490
+ lea rdi, [r14 + rbx]
+ mov rdx, rbp
+ mov rsi, r13
+ call 0x2490
+ mov byte [r14 + r15], 0
+LABEL50:
+ mov rax, r14
+ add rsp, 8
+ pop rbx
+ pop rbp
+ pop r12
+ pop r13
+ pop r14
+ pop r15
+ ret
+LABEL13:
+ mov r14d, 0
+ mov rdi, rbp
+ add rdi, 1
+ cjmp LABEL50
+ call 0x24c0
+ mov r14, rax
+ test rax, rax
+ cjmp LABEL54
+ mov rdx, rbp
+ mov rsi, r13
+ mov rdi, rax
+ call 0x2490
+ mov byte [r14 + rbp], 0
+ jmp LABEL50
+LABEL54:
+ mov edx, 5
+ lea rsi, [rip + 0x2b6d]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov eax, 0
+ call 0x4427
+ jmp LABEL50
+LABEL24:
+ mov edx, 5
+ lea rsi, [rip + 0x2f15]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rsi, rbp
+ mov eax, 0
+ call 0x4427
+ mov r14d, 0
+ jmp LABEL50
+LABEL28:
+ mov edx, 5
+ lea rsi, [rip + 0x2b17]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov eax, 0
+ call 0x4427
+ jmp LABEL50

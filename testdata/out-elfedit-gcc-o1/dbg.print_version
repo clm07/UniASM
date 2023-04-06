@@ -1,0 +1,31 @@
+ .name dbg.print_version
+ .offset 00000000000043a3
+ .file elfedit-gcc-o1
+ endbr64
+ push rax
+ pop rax
+ sub rsp, 8
+ mov rdx, rdi
+ lea rcx, [rip + 0x3669]
+ lea rsi, [rip + 0x3676]
+ mov edi, 1
+ mov eax, 0
+ call 0x2530
+ mov edx, 5
+ lea rsi, [rip + 0x3667]
+ mov edi, 0
+ call 0x23c0
+ mov rsi, rax
+ mov edi, 1
+ mov eax, 0
+ call 0x2530
+ mov edx, 5
+ lea rsi, [rip + 0x3677]
+ mov edi, 0
+ call 0x23c0
+ mov rsi, rax
+ mov edi, 1
+ mov eax, 0
+ call 0x2530
+ mov edi, 0
+ call 0x2580

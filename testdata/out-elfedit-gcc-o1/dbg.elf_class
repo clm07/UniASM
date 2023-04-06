@@ -1,0 +1,25 @@
+ .name dbg.elf_class
+ .offset 00000000000026c9
+ .file elfedit-gcc-o1
+ cmp edi, 0x3e
+ cjmp LABEL1
+ cjmp LABEL2
+ mov eax, 1
+ cmp edi, 3
+ cjmp LABEL5
+ cmp edi, 6
+ setne al
+ movzx eax, al
+ lea eax, [rax + rax + 1]
+ ret
+LABEL2:
+ sub edi, 0xb4
+ cmp edi, 1
+ seta al
+ movzx eax, al
+ add eax, 2
+ ret
+LABEL1:
+ mov eax, 3
+LABEL5:
+ ret

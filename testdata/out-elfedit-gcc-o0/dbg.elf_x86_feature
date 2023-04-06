@@ -1,0 +1,83 @@
+ .name dbg.elf_x86_feature
+ .offset 000000000000333f
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x20
+ mov qword [rbp - 0x18], rdi
+ mov dword [rbp - 0x1c], esi
+ mov rax, qword [rbp - 0x18]
+ lea rsi, [rip + 0x5d21]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL11
+ mov dword [rbp - 4], 1
+ jmp LABEL13
+LABEL11:
+ mov rax, qword [rbp - 0x18]
+ lea rsi, [rip + 0x5d02]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL19
+ mov dword [rbp - 4], 2
+ jmp LABEL13
+LABEL19:
+ mov rax, qword [rbp - 0x18]
+ lea rsi, [rip + 0x5ce8]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL27
+ mov dword [rbp - 4], 4
+ jmp LABEL13
+LABEL27:
+ mov rax, qword [rbp - 0x18]
+ lea rsi, [rip + 0x5cd0]
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL35
+ mov dword [rbp - 4], 8
+ jmp LABEL13
+LABEL35:
+ lea rdi, [rip + 0x5cbc]
+ call 0x2400
+ mov rdx, rax
+ mov rax, qword [rbp - 0x18]
+ mov rsi, rax
+ mov rdi, rdx
+ mov eax, 0
+ call 0x4eee
+ mov eax, 0xffffffff
+ jmp LABEL47
+LABEL13:
+ cmp dword [rbp - 0x1c], 0
+ cjmp LABEL49
+ mov eax, dword [rip + 0x9f35]
+ or eax, dword [rbp - 4]
+ mov dword [rip + 0x9f2c], eax
+ mov eax, dword [rbp - 4]
+ not eax
+ mov edx, eax
+ mov eax, dword [rip + 0x9f23]
+ and eax, edx
+ mov dword [rip + 0x9f1b], eax
+ jmp LABEL59
+LABEL49:
+ mov eax, dword [rip + 0x9f13]
+ or eax, dword [rbp - 4]
+ mov dword [rip + 0x9f0a], eax
+ mov eax, dword [rbp - 4]
+ not eax
+ mov edx, eax
+ mov eax, dword [rip + 0x9ef9]
+ and eax, edx
+ mov dword [rip + 0x9ef1], eax
+LABEL59:
+ mov eax, 0
+LABEL47:
+ leave
+ ret

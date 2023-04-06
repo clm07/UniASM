@@ -1,0 +1,21 @@
+ .name dbg.countargv
+ .offset 0000000000006248
+ .file elfedit-gcc-o1
+ endbr64
+ test rdi, rdi
+ cjmp LABEL2
+ mov edx, 0
+ cmp qword [rdi], 0
+ cjmp LABEL5
+ mov eax, 1
+LABEL10:
+ mov edx, eax
+ add rax, 1
+ cmp qword [rdi + rax*8 - 8], 0
+ cjmp LABEL10
+LABEL5:
+ mov eax, edx
+ ret
+LABEL2:
+ mov edx, 0
+ jmp LABEL5

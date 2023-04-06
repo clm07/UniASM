@@ -1,0 +1,25 @@
+ .name dbg.xmalloc
+ .offset 0000000000007faa
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x20
+ mov qword [rbp - 0x18], rdi
+ cmp qword [rbp - 0x18], 0
+ cjmp LABEL6
+ mov qword [rbp - 0x18], 1
+LABEL6:
+ mov rax, qword [rbp - 0x18]
+ mov rdi, rax
+ call 0x2500
+ mov qword [rbp - 8], rax
+ cmp qword [rbp - 8], 0
+ cjmp LABEL13
+ mov rax, qword [rbp - 0x18]
+ mov rdi, rax
+ call 0x7f04
+LABEL13:
+ mov rax, qword [rbp - 8]
+ leave
+ ret

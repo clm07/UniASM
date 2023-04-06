@@ -1,0 +1,21 @@
+ .name dbg.startswith
+ .offset 0000000000004eb5
+ .file elfedit-gcc-o0
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x10
+ mov qword [rbp - 8], rdi
+ mov qword [rbp - 0x10], rsi
+ mov rax, qword [rbp - 0x10]
+ mov rdi, rax
+ call 0x23c0
+ mov rdx, rax
+ mov rcx, qword [rbp - 0x10]
+ mov rax, qword [rbp - 8]
+ mov rsi, rcx
+ mov rdi, rax
+ call 0x2360
+ test eax, eax
+ sete al
+ leave
+ ret

@@ -1,0 +1,58 @@
+ .name dbg.concat_length
+ .offset 0000000000006279
+ .file elfedit-gcc-o1
+ endbr64
+ sub rsp, 0x58
+ mov qword [rsp + 0x28], rsi
+ mov qword [rsp + 0x30], rdx
+ mov qword [rsp + 0x38], rcx
+ mov qword [rsp + 0x40], r8
+ mov qword [rsp + 0x48], r9
+ mov rax, qword fs:[0x28]
+ mov qword [rsp + 0x18], rax
+ xor eax, eax
+ mov dword [rsp], 8
+ lea rax, [rsp + 0x60]
+ mov qword [rsp + 8], rax
+ lea rax, [rsp + 0x20]
+ mov qword [rsp + 0x10], rax
+ test rdi, rdi
+ cjmp LABEL16
+ mov r9, rax
+ mov esi, 0
+ mov r8, 0xffffffffffffffff
+ mov eax, 0
+ jmp LABEL21
+LABEL35:
+ mov rcx, qword [rsp + 8]
+ lea rdx, [rcx + 8]
+ mov qword [rsp + 8], rdx
+LABEL40:
+ mov rdi, qword [rcx]
+ test rdi, rdi
+ cjmp LABEL27
+LABEL21:
+ mov rcx, r8
+ repne scasb al, byte [rdi]
+ mov rdi, rcx
+ not rdi
+ lea rsi, [rsi + rdi - 1]
+ mov edx, dword [rsp]
+ cmp edx, 0x2f
+ cjmp LABEL35
+ mov ecx, edx
+ add rcx, r9
+ add edx, 8
+ mov dword [rsp], edx
+ jmp LABEL40
+LABEL16:
+ mov esi, 0
+LABEL27:
+ mov rax, qword [rsp + 0x18]
+ xor rax, qword fs:[0x28]
+ cjmp LABEL44
+ mov rax, rsi
+ add rsp, 0x58
+ ret
+LABEL44:
+ call 0x23d0

@@ -1,0 +1,18 @@
+ .name dbg.unix_lbasename
+ .offset 000000000000684b
+ .file elfedit-gcc-o1
+ endbr64
+ mov rax, rdi
+ movzx ecx, byte [rdi]
+ test cl, cl
+ cjmp LABEL4
+ lea rdx, [rdi + 1]
+LABEL11:
+ cmp cl, 0x2f
+ cmove rax, rdx
+ add rdx, 1
+ movzx ecx, byte [rdx - 1]
+ test cl, cl
+ cjmp LABEL11
+LABEL4:
+ ret

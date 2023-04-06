@@ -1,0 +1,38 @@
+ .name dbg.byte_put_little_endian
+ .offset 0000000000005130
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x20
+ mov qword [rbp - 8], rdi
+ mov qword [rbp - 0x10], rsi
+ mov dword [rbp - 0x14], edx
+ cmp dword [rbp - 0x14], 8
+ cjmp LABEL8
+ lea rdi, [rip + 0x4a06]
+ call 0x2400
+ mov rdx, rax
+ mov eax, dword [rbp - 0x14]
+ mov esi, eax
+ mov rdi, rdx
+ mov eax, 0
+ call 0x4eee
+ call 0x2340
+LABEL28:
+ mov rax, qword [rbp - 8]
+ lea rdx, [rax + 1]
+ mov qword [rbp - 8], rdx
+ mov rdx, qword [rbp - 0x10]
+ mov byte [rax], dl
+ shr qword [rbp - 0x10], 8
+LABEL8:
+ mov eax, dword [rbp - 0x14]
+ lea edx, [rax - 1]
+ mov dword [rbp - 0x14], edx
+ test eax, eax
+ cjmp LABEL28
+ nop
+ nop
+ leave
+ ret

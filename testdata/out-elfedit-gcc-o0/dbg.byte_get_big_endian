@@ -1,0 +1,233 @@
+ .name dbg.byte_get_big_endian
+ .offset 000000000000552e
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x10
+ mov qword [rbp - 8], rdi
+ mov dword [rbp - 0xc], esi
+ cmp dword [rbp - 0xc], 8
+ cjmp LABEL7
+ mov eax, dword [rbp - 0xc]
+ lea rdx, [rax*4]
+ lea rax, [rip + 0x463f]
+ mov eax, dword [rdx + rax]
+ cdqe
+ lea rdx, [rip + 0x4633]
+ add rax, rdx
+ jmp rax
+ mov rax, qword [rbp - 8]
+ movzx eax, byte [rax]
+ movzx eax, al
+ jmp LABEL19
+ mov rax, qword [rbp - 8]
+ add rax, 1
+ movzx eax, byte [rax]
+ movzx edx, al
+ mov rax, qword [rbp - 8]
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl eax, 8
+ or eax, edx
+ mov eax, eax
+ jmp LABEL19
+ mov rax, qword [rbp - 8]
+ add rax, 2
+ movzx eax, byte [rax]
+ movzx eax, al
+ mov rdx, qword [rbp - 8]
+ add rdx, 1
+ movzx edx, byte [rdx]
+ movzx edx, dl
+ shl rdx, 8
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x10
+ or rax, rdx
+ jmp LABEL19
+ mov rax, qword [rbp - 8]
+ add rax, 3
+ movzx eax, byte [rax]
+ movzx eax, al
+ mov rdx, qword [rbp - 8]
+ add rdx, 2
+ movzx edx, byte [rdx]
+ movzx edx, dl
+ shl rdx, 8
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 1
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x10
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x18
+ or rax, rdx
+ jmp LABEL19
+ mov rax, qword [rbp - 8]
+ add rax, 4
+ movzx eax, byte [rax]
+ movzx eax, al
+ mov rdx, qword [rbp - 8]
+ add rdx, 3
+ movzx edx, byte [rdx]
+ movzx edx, dl
+ shl rdx, 8
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 2
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x10
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 1
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x18
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x20
+ or rax, rdx
+ jmp LABEL19
+ mov rax, qword [rbp - 8]
+ add rax, 5
+ movzx eax, byte [rax]
+ movzx eax, al
+ mov rdx, qword [rbp - 8]
+ add rdx, 4
+ movzx edx, byte [rdx]
+ movzx edx, dl
+ shl rdx, 8
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 3
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x10
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 2
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x18
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 1
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x20
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x28
+ or rax, rdx
+ jmp LABEL19
+ mov rax, qword [rbp - 8]
+ add rax, 6
+ movzx eax, byte [rax]
+ movzx eax, al
+ mov rdx, qword [rbp - 8]
+ add rdx, 5
+ movzx edx, byte [rdx]
+ movzx edx, dl
+ shl rdx, 8
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 4
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x10
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 3
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x18
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 2
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x20
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 1
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x28
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x30
+ or rax, rdx
+ jmp LABEL19
+ mov rax, qword [rbp - 8]
+ add rax, 7
+ movzx eax, byte [rax]
+ movzx eax, al
+ mov rdx, qword [rbp - 8]
+ add rdx, 6
+ movzx edx, byte [rdx]
+ movzx edx, dl
+ shl rdx, 8
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 5
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x10
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 4
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x18
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 3
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x20
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 2
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x28
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ add rax, 1
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x30
+ or rdx, rax
+ mov rax, qword [rbp - 8]
+ movzx eax, byte [rax]
+ movzx eax, al
+ shl rax, 0x38
+ or rax, rdx
+ jmp LABEL19
+LABEL7:
+ lea rdi, [rip + 0x4323]
+ call 0x2400
+ mov rdx, rax
+ mov eax, dword [rbp - 0xc]
+ mov esi, eax
+ mov rdi, rdx
+ mov eax, 0
+ call 0x4eee
+ call 0x2340
+LABEL19:
+ leave
+ ret

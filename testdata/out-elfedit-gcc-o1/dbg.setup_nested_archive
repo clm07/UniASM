@@ -1,0 +1,63 @@
+ .name dbg.setup_nested_archive
+ .offset 000000000000546f
+ .file elfedit-gcc-o1
+ endbr64
+ push r12
+ push rbp
+ push rbx
+ sub rsp, 0xa0
+ mov rbx, rdi
+ mov rbp, rsi
+ mov rax, qword fs:[0x28]
+ mov qword [rsp + 0x98], rax
+ xor eax, eax
+ mov rdi, qword [rdi]
+ test rdi, rdi
+ cjmp LABEL12
+ call 0x2470
+ test eax, eax
+ cjmp LABEL15
+LABEL12:
+ mov rdi, qword [rbx + 8]
+ test rdi, rdi
+ cjmp LABEL18
+ call 0x23a0
+ mov qword [rbx + 8], 0
+LABEL18:
+ mov rdi, rbx
+ call 0x5423
+ lea rsi, [rip + 0x2709]
+ mov rdi, rbp
+ call 0x2560
+ mov r12, rax
+ mov eax, 1
+ test r12, r12
+ cjmp LABEL15
+ mov rdi, r12
+ call 0x24a0
+ mov esi, eax
+ mov rdx, rsp
+ mov edi, 1
+ call 0x24e0
+ mov edx, eax
+ mov eax, 1
+ test edx, edx
+ cjmp LABEL15
+ mov r9d, 0
+ mov r8d, 0
+ mov rcx, qword [rsp + 0x30]
+ mov rdx, r12
+ mov rsi, rbp
+ mov rdi, rbx
+ call 0x5080
+LABEL15:
+ mov rcx, qword [rsp + 0x98]
+ xor rcx, qword fs:[0x28]
+ cjmp LABEL49
+ add rsp, 0xa0
+ pop rbx
+ pop rbp
+ pop r12
+ ret
+LABEL49:
+ call 0x23d0

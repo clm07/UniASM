@@ -1,0 +1,52 @@
+ .name dbg.dupargv
+ .offset 0000000000005ac9
+ .file elfedit-gcc-o1
+ endbr64
+ push r12
+ push rbp
+ push rbx
+ mov rbp, rdi
+ test rdi, rdi
+ cjmp LABEL6
+ cmp qword [rdi], 0
+ cjmp LABEL8
+ mov eax, 1
+LABEL13:
+ mov edx, eax
+ add rax, 1
+ cmp qword [rbp + rax*8 - 8], 0
+ cjmp LABEL13
+LABEL36:
+ lea edi, [rdx + 1]
+ movsxd rdi, edi
+ shl rdi, 3
+ call 0x699a
+ mov r12, rax
+ mov rdi, qword [rbp]
+ test rdi, rdi
+ cjmp LABEL21
+ mov ebx, 0
+LABEL28:
+ call 0x6a40
+ mov qword [r12 + rbx], rax
+ add rbx, 8
+ mov rdi, qword [rbp + rbx]
+ test rdi, rdi
+ cjmp LABEL28
+LABEL38:
+ mov qword [r12 + rbx], 0
+LABEL40:
+ mov rax, r12
+ pop rbx
+ pop rbp
+ pop r12
+ ret
+LABEL8:
+ mov edx, 0
+ jmp LABEL36
+LABEL21:
+ mov ebx, 0
+ jmp LABEL38
+LABEL6:
+ mov r12, rdi
+ jmp LABEL40

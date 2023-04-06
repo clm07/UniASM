@@ -1,0 +1,36 @@
+ .name dbg.xmalloc_failed
+ .offset 0000000000006913
+ .file elfedit-gcc-o1
+ endbr64
+ push rbp
+ push rbx
+ sub rsp, 8
+ mov rbx, rdi
+ mov rbp, qword [rip + 0x49f9]
+ test rbp, rbp
+ cjmp LABEL7
+ mov edi, 0
+ call 0x2450
+ sub rax, rbp
+LABEL30:
+ mov rcx, qword [rip + 0x4868]
+ cmp byte [rcx], 0
+ lea r8, [rip + 0x1209]
+ lea rdx, [rip + 0x76e]
+ cmove r8, rdx
+ sub rsp, 8
+ push rax
+ mov r9, rbx
+ lea rdx, [rip + 0x1c5c]
+ mov esi, 1
+ mov rdi, qword [rip + 0x4890]
+ mov eax, 0
+ call 0x25a0
+ mov edi, 1
+ call 0x68c7
+LABEL7:
+ mov edi, 0
+ call 0x2450
+ lea rdx, [rip + 0x484b]
+ sub rax, rdx
+ jmp LABEL30

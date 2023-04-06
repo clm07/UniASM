@@ -1,0 +1,45 @@
+ .name dbg.elf_osabi
+ .offset 00000000000046f3
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x20
+ mov qword [rbp - 0x18], rdi
+ mov dword [rbp - 4], 0
+ jmp LABEL6
+LABEL26:
+ mov eax, dword [rbp - 4]
+ shl rax, 4
+ mov rdx, rax
+ lea rax, [rip + 0x844b]
+ mov rdx, qword [rdx + rax]
+ mov rax, qword [rbp - 0x18]
+ mov rsi, rdx
+ mov rdi, rax
+ call 0x2330
+ test eax, eax
+ cjmp LABEL17
+ mov eax, dword [rbp - 4]
+ shl rax, 4
+ mov rdx, rax
+ lea rax, [rip + 0x841b]
+ mov eax, dword [rdx + rax]
+ jmp LABEL23
+LABEL17:
+ add dword [rbp - 4], 1
+LABEL6:
+ cmp dword [rbp - 4], 0xf
+ cjmp LABEL26
+ lea rdi, [rip + 0x4cc6]
+ call 0x2400
+ mov rdx, rax
+ mov rax, qword [rbp - 0x18]
+ mov rsi, rax
+ mov rdi, rdx
+ mov eax, 0
+ call 0x4eee
+ mov eax, 0xffffffff
+LABEL23:
+ leave
+ ret

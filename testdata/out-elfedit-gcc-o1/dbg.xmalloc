@@ -1,0 +1,17 @@
+ .name dbg.xmalloc
+ .offset 000000000000699a
+ .file elfedit-gcc-o1
+ endbr64
+ push rbx
+ test rdi, rdi
+ mov ebx, 1
+ cmovne rbx, rdi
+ mov rdi, rbx
+ call 0x24c0
+ test rax, rax
+ cjmp LABEL8
+ pop rbx
+ ret
+LABEL8:
+ mov rdi, rbx
+ call 0x6913

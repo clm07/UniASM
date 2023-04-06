@@ -1,0 +1,15 @@
+ .name dbg.xmalloc_set_program_name
+ .offset 00000000000068e3
+ .file elfedit-gcc-o1
+ endbr64
+ mov qword [rip + 0x48ba], rdi
+ cmp qword [rip + 0x4a2a], 0
+ cjmp LABEL3
+ ret
+LABEL3:
+ sub rsp, 8
+ mov edi, 0
+ call 0x2450
+ mov qword [rip + 0x4a12], rax
+ add rsp, 8
+ ret

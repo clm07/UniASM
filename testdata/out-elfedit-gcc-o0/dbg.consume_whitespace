@@ -1,0 +1,32 @@
+ .name dbg.consume_whitespace
+ .offset 0000000000006dc0
+ .file elfedit-gcc-o0
+ endbr64
+ push rbp
+ mov rbp, rsp
+ mov qword [rbp - 8], rdi
+ jmp LABEL4
+LABEL22:
+ mov rax, qword [rbp - 8]
+ mov rax, qword [rax]
+ lea rdx, [rax + 1]
+ mov rax, qword [rbp - 8]
+ mov qword [rax], rdx
+LABEL4:
+ mov rax, qword [rbp - 8]
+ mov rax, qword [rax]
+ movzx eax, byte [rax]
+ movsx eax, al
+ movzx eax, al
+ cdqe
+ lea rdx, [rax + rax]
+ lea rax, [rip + 0x3423]
+ movzx eax, word [rdx + rax]
+ movzx eax, ax
+ and eax, 0x40
+ test eax, eax
+ cjmp LABEL22
+ nop
+ nop
+ pop rbp
+ ret

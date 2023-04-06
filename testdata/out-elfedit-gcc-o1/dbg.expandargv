@@ -1,0 +1,225 @@
+ .name dbg.expandargv
+ .offset 0000000000005edb
+ .file elfedit-gcc-o1
+ endbr64
+ push r15
+ push r14
+ push r13
+ push r12
+ push rbp
+ push rbx
+ sub rsp, 0xe8
+ mov rax, qword fs:[0x28]
+ mov qword [rsp + 0xd8], rax
+ xor eax, eax
+ mov rax, qword [rsi]
+ mov qword [rsp + 0x38], rax
+ cmp dword [rdi], 1
+ cjmp LABEL14
+ mov r14, rdi
+ mov r15, rsi
+ mov ebx, 1
+ mov dword [rsp + 0x1c], 0x7d0
+ mov r13d, 0
+ jmp LABEL20
+LABEL114:
+ mov rcx, qword [rax]
+ lea rdx, [rip + 0x2214]
+ mov esi, 1
+ mov rdi, qword [rip + 0x52b8]
+ mov eax, 0
+ call 0x25a0
+ mov edi, 1
+ call 0x68c7
+LABEL125:
+ mov rax, qword [r15]
+ mov rcx, qword [rax]
+ lea rdx, [rip + 0x2217]
+ mov esi, 1
+ mov rdi, qword [rip + 0x528b]
+ mov eax, 0
+ call 0x25a0
+ mov edi, 1
+ call 0x68c7
+LABEL165:
+ mov rdi, qword [rsp + 0x20]
+ call 0x2320
+ jmp LABEL40
+LABEL175:
+ test al, al
+ cjmp LABEL42
+ mov rdi, qword [rsp + 0x20]
+ call 0x5b8a
+ mov qword [rsp + 0x28], rax
+ mov rax, qword [rsp + 0x38]
+ cmp qword [r15], rax
+ cjmp LABEL48
+LABEL189:
+ mov rax, qword [rsp + 0x28]
+ cmp qword [rax], 0
+ cjmp LABEL51
+ mov ebp, 0
+LABEL56:
+ add rbp, 1
+ lea rdx, [rbp*8]
+ cmp qword [rax + rbp*8], 0
+ cjmp LABEL56
+ mov qword [rsp + 0x30], rdx
+LABEL96:
+ mov rax, qword [r15]
+ mov rdi, qword [rax + r12*8]
+ call 0x2320
+ movsxd rax, dword [r14]
+ lea rsi, [rbp + rax + 1]
+ shl rsi, 3
+ mov rdi, qword [r15]
+ call 0x6a09
+ mov qword [r15], rax
+ mov edx, dword [r14]
+ sub edx, ebx
+ movsxd rdx, edx
+ shl rdx, 3
+ mov rbx, qword [rsp + 0x10]
+ lea rsi, [rax + rbx + 8]
+ add r12, rbp
+ lea rdi, [rax + r12*8]
+ call 0x2550
+ mov rdi, rbx
+ add rdi, qword [r15]
+ mov rdx, qword [rsp + 0x30]
+ mov rbx, qword [rsp + 0x28]
+ mov rsi, rbx
+ call 0x2490
+ mov eax, dword [r14]
+ lea eax, [rax + rbp - 1]
+ mov dword [r14], eax
+ mov rdi, rbx
+ call 0x2320
+ mov rdi, qword [rsp + 0x20]
+ call 0x2320
+ mov ebx, r13d
+LABEL40:
+ mov rdi, qword [rsp + 8]
+ call 0x23a0
+ mov r13d, ebx
+ jmp LABEL93
+LABEL186:
+ mov ebp, 0
+ mov qword [rsp + 0x30], 0
+ jmp LABEL96
+LABEL48:
+ mov rdi, rax
+ jmp LABEL98
+LABEL51:
+ mov ebp, 0
+ mov qword [rsp + 0x30], 0
+ jmp LABEL96
+LABEL112:
+ mov r13d, ebx
+LABEL93:
+ lea ebx, [r13 + 1]
+ cmp dword [r14], ebx
+ cjmp LABEL14
+LABEL20:
+ mov rax, qword [r15]
+ movsxd r12, ebx
+ lea rcx, [r12*8]
+ mov qword [rsp + 0x10], rcx
+ mov rbp, qword [rax + r12*8]
+ cmp byte [rbp], 0x40
+ cjmp LABEL112
+ sub dword [rsp + 0x1c], 1
+ cjmp LABEL114
+ add rbp, 1
+ lea rdx, [rsp + 0x40]
+ mov rsi, rbp
+ mov edi, 1
+ call 0x24b0
+ test eax, eax
+ cjmp LABEL112
+ mov eax, dword [rsp + 0x58]
+ and eax, 0xf000
+ cmp eax, 0x4000
+ cjmp LABEL125
+ lea rsi, [rip + 0x203e]
+ mov rdi, rbp
+ call 0x2560
+ mov qword [rsp + 8], rax
+ mov rbp, rax
+ test rax, rax
+ cjmp LABEL112
+ mov edx, 2
+ mov esi, 0
+ mov rdi, rax
+ call 0x24f0
+ cmp eax, 0xffffffff
+ cjmp LABEL40
+ mov qword [rsp + 8], rbp
+ mov rdi, rbp
+ call 0x2480
+ mov rbp, rax
+ cmp rax, 0xffffffffffffffff
+ cjmp LABEL40
+ mov edx, 0
+ mov esi, 0
+ mov rdi, qword [rsp + 8]
+ call 0x24f0
+ cmp eax, 0xffffffff
+ cjmp LABEL40
+ lea rdi, [rbp + 1]
+ call 0x699a
+ mov rcx, qword [rsp + 8]
+ mov rdx, rbp
+ mov esi, 1
+ mov qword [rsp + 0x20], rax
+ mov rdi, rax
+ call 0x2380
+ mov qword [rsp + 0x28], rax
+ cmp rbp, rax
+ cjmp LABEL161
+ mov rdi, qword [rsp + 8]
+ call 0x2370
+ test eax, eax
+ cjmp LABEL165
+LABEL161:
+ mov rdx, qword [rsp + 0x20]
+ mov rcx, qword [rsp + 0x28]
+ mov byte [rdx + rcx], 0
+ movzx eax, byte [rdx]
+ test al, al
+ cjmp LABEL42
+LABEL179:
+ movzx ecx, al
+ lea rdi, [rip + 0x21e8]
+ test byte [rdi + rcx*2], 0x40
+ cjmp LABEL175
+ add rdx, 1
+ movzx eax, byte [rdx]
+ test al, al
+ cjmp LABEL179
+LABEL42:
+ mov edi, 8
+ call 0x699a
+ mov qword [rsp + 0x28], rax
+ mov qword [rax], 0
+ mov rdi, qword [r15]
+ cmp qword [rsp + 0x38], rdi
+ cjmp LABEL186
+LABEL98:
+ call 0x5ac9
+ mov qword [r15], rax
+ jmp LABEL189
+LABEL14:
+ mov rax, qword [rsp + 0xd8]
+ xor rax, qword fs:[0x28]
+ cjmp LABEL192
+ add rsp, 0xe8
+ pop rbx
+ pop rbp
+ pop r12
+ pop r13
+ pop r14
+ pop r15
+ ret
+LABEL192:
+ call 0x23d0

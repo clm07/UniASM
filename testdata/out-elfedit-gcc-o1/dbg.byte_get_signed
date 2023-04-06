@@ -1,0 +1,30 @@
+ .name dbg.byte_get_signed
+ .offset 0000000000004ee7
+ .file elfedit-gcc-o1
+ endbr64
+ push rbx
+ mov ebx, esi
+ call qword [rip + 0x6434]
+ cmp ebx, 8
+ cjmp LABEL5
+ mov ebx, ebx
+ lea rcx, [rip + 0x2d46]
+ movsxd rdx, dword [rcx + rbx*4]
+ add rdx, rcx
+ jmp rdx
+ xor al, 0x80
+ add rax, 0xffffffffffffff80
+LABEL17:
+ pop rbx
+ ret
+ xor ah, 0x80
+ sub rax, 0x8000
+ jmp LABEL17
+ xor rax, 0x800000
+ sub rax, 0x800000
+ jmp LABEL17
+ btc rax, 0x1f
+ add rax, 0xffffffff80000000
+ jmp LABEL17
+LABEL5:
+ call 0x2350

@@ -1,0 +1,71 @@
+ .name dbg.get_archive_member_name_at
+ .offset 0000000000005547
+ .file elfedit-gcc-o1
+ endbr64
+ push rbp
+ push rbx
+ sub rsp, 8
+ mov rbx, rdi
+ mov rbp, rdx
+ mov rdi, qword [rdi + 8]
+ mov edx, 0
+ call 0x24f0
+ test eax, eax
+ cjmp LABEL10
+ mov rcx, qword [rbx + 8]
+ lea rdi, [rbx + 0x58]
+ mov edx, 0x3c
+ mov esi, 1
+ call 0x2380
+ cmp rax, 0x3c
+ cjmp LABEL17
+ lea rdi, [rbx + 0x92]
+ mov edx, 2
+ lea rsi, [rip + 0x1b3a]
+ call 0x2440
+ test eax, eax
+ cjmp LABEL23
+ mov rsi, rbp
+ mov rdi, rbx
+ call 0x5647
+LABEL41:
+ add rsp, 8
+ pop rbx
+ pop rbp
+ ret
+LABEL10:
+ mov rbx, qword [rbx]
+ mov edx, 5
+ lea rsi, [rip + 0x2abd]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rsi, rbx
+ mov eax, 0
+ call 0x4427
+ mov eax, 0
+ jmp LABEL41
+LABEL17:
+ mov rbx, qword [rbx]
+ mov edx, 5
+ lea rsi, [rip + 0x21ed]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rsi, rbx
+ mov eax, 0
+ call 0x4427
+ mov eax, 0
+ jmp LABEL41
+LABEL23:
+ mov rbx, qword [rbx]
+ mov edx, 5
+ lea rsi, [rip + 0x21e5]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rsi, rbx
+ mov eax, 0
+ call 0x4427
+ mov eax, 0
+ jmp LABEL41

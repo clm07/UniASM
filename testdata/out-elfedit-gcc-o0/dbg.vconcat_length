@@ -1,0 +1,48 @@
+ .name dbg.vconcat_length
+ .offset 000000000000774d
+ .file elfedit-gcc-o0
+ push rbp
+ mov rbp, rsp
+ sub rsp, 0x20
+ mov qword [rbp - 0x18], rdi
+ mov qword [rbp - 0x20], rsi
+ mov qword [rbp - 0x10], 0
+ mov rax, qword [rbp - 0x18]
+ mov qword [rbp - 8], rax
+ jmp LABEL8
+LABEL37:
+ mov rax, qword [rbp - 8]
+ mov rdi, rax
+ call 0x23c0
+ add qword [rbp - 0x10], rax
+ mov rax, qword [rbp - 0x20]
+ mov eax, dword [rax]
+ cmp eax, 0x2f
+ cjmp LABEL16
+ mov rax, qword [rbp - 0x20]
+ mov rdx, qword [rax + 0x10]
+ mov rax, qword [rbp - 0x20]
+ mov eax, dword [rax]
+ mov eax, eax
+ add rax, rdx
+ mov rdx, qword [rbp - 0x20]
+ mov edx, dword [rdx]
+ lea ecx, [rdx + 8]
+ mov rdx, qword [rbp - 0x20]
+ mov dword [rdx], ecx
+ jmp LABEL28
+LABEL16:
+ mov rax, qword [rbp - 0x20]
+ mov rax, qword [rax + 8]
+ lea rcx, [rax + 8]
+ mov rdx, qword [rbp - 0x20]
+ mov qword [rdx + 8], rcx
+LABEL28:
+ mov rax, qword [rax]
+ mov qword [rbp - 8], rax
+LABEL8:
+ cmp qword [rbp - 8], 0
+ cjmp LABEL37
+ mov rax, qword [rbp - 0x10]
+ leave
+ ret

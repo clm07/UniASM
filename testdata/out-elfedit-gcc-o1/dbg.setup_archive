@@ -1,0 +1,228 @@
+ .name dbg.setup_archive
+ .offset 0000000000005080
+ .file elfedit-gcc-o1
+ endbr64
+ push r15
+ push r14
+ push r13
+ push r12
+ push rbp
+ push rbx
+ sub rsp, 0x18
+ mov rbx, rdi
+ mov r13, rsi
+ mov rbp, rdx
+ mov qword [rsp + 8], rcx
+ mov r12d, r8d
+ mov r14d, r9d
+ mov rdi, rsi
+ call 0x25b0
+ mov qword [rbx], rax
+ mov qword [rbx + 8], rbp
+ mov qword [rbx + 0x10], 0
+ mov qword [rbx + 0x18], 0
+ mov qword [rbx + 0x20], 0
+ mov qword [rbx + 0x28], 0
+ mov qword [rbx + 0x30], 0
+ mov qword [rbx + 0x38], 0
+ mov qword [rbx + 0x40], 0
+ mov dword [rbx + 0x50], r12d
+ mov dword [rbx + 0x54], 0
+ mov qword [rbx + 0x48], 8
+ mov edx, 0
+ mov esi, 8
+ mov rdi, rbp
+ call 0x24f0
+ test eax, eax
+ cjmp LABEL33
+ mov r12d, eax
+ lea r15, [rbx + 0x58]
+ mov rcx, rbp
+ mov edx, 0x3c
+ mov esi, 1
+ mov rdi, r15
+ call 0x2380
+ cmp rax, 0x3c
+ cjmp LABEL42
+ test rax, rax
+ cjmp LABEL44
+LABEL63:
+ mov eax, r12d
+ add rsp, 0x18
+ pop rbx
+ pop rbp
+ pop r12
+ pop r13
+ pop r14
+ pop r15
+ ret
+LABEL33:
+ mov edx, 5
+ lea rsi, [rip + 0x2e25]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rsi, r13
+ mov eax, 0
+ call 0x4427
+ mov r12d, 1
+ jmp LABEL63
+LABEL44:
+ mov edx, 5
+ lea rsi, [rip + 0x2657]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rsi, r13
+ mov eax, 0
+ call 0x4427
+ mov r12d, 1
+ jmp LABEL63
+LABEL42:
+ mov ecx, 0x10
+ lea rdi, [rip + 0x29d3]
+ mov rsi, r15
+ repe cmpsb byte [rsi], byte ptr [rdi]
+ seta al
+ sbb al, 0
+ test al, al
+ cjmp LABEL81
+ mov ecx, 0x10
+ lea rdi, [rip + 0x29c6]
+ mov rsi, r15
+ repe cmpsb byte [rsi], byte ptr [rdi]
+ seta al
+ sbb al, 0
+ test al, al
+ cjmp LABEL89
+ test r14d, r14d
+ cjmp LABEL91
+LABEL143:
+ mov ecx, 0x10
+ lea rdi, [rip + 0x29c9]
+ mov rsi, r15
+ repe cmpsb byte [rsi], byte ptr [rdi]
+ seta r14b
+ sbb r14b, 0
+ movsx r14d, r14b
+ test r14d, r14d
+ cjmp LABEL63
+ movzx r15d, byte [rbx + 0x92]
+ mov byte [rbx + 0x92], 0
+ lea rdi, [rbx + 0x88]
+ mov edx, 0xa
+ mov esi, 0
+ call 0x2570
+ mov r12, rax
+ mov qword [rbx + 0x38], rax
+ mov byte [rbx + 0x92], r15b
+ cmp rax, 7
+ cjmp LABEL111
+ test rax, rax
+ cjmp LABEL113
+ cmp rax, qword [rsp + 8]
+ cjmp LABEL113
+ mov rax, qword [rbx + 0x48]
+ lea rax, [r12 + rax + 0x3c]
+ mov qword [rbx + 0x48], rax
+ lea rdi, [r12 + 1]
+ call 0x24c0
+ mov rdi, rax
+ mov qword [rbx + 0x30], rax
+ test rax, rax
+ cjmp LABEL124
+ mov rcx, rbp
+ mov edx, 1
+ mov rsi, r12
+ call 0x2380
+ cmp rax, 1
+ cjmp LABEL130
+ test byte [rbx + 0x38], 1
+ cjmp LABEL132
+LABEL210:
+ mov rdx, qword [rbx + 0x30]
+ mov rax, qword [rbx + 0x38]
+ mov byte [rdx + rax], 0
+ mov r12d, r14d
+ jmp LABEL63
+LABEL81:
+ mov edx, r14d
+ mov esi, 4
+ mov rdi, rbx
+ call 0x4a67
+ test eax, eax
+ cjmp LABEL143
+ mov r12d, 1
+ jmp LABEL63
+LABEL89:
+ mov dword [rbx + 0x54], 1
+ mov edx, r14d
+ mov esi, 8
+ mov rdi, rbx
+ call 0x4a67
+ test eax, eax
+ cjmp LABEL143
+ mov r12d, 1
+ jmp LABEL63
+LABEL91:
+ mov edx, 5
+ lea rsi, [rip + 0x288d]
+ mov edi, 0
+ call 0x23c0
+ mov rsi, rax
+ mov rdx, r13
+ mov edi, 1
+ mov eax, 0
+ call 0x2530
+ jmp LABEL143
+LABEL111:
+ mov edx, 5
+ lea rsi, [rip + 0x2c61]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rdx, r12
+ mov rsi, r13
+ mov eax, 0
+ call 0x4427
+ mov r12d, 1
+ jmp LABEL63
+LABEL113:
+ mov edx, 5
+ lea rsi, [rip + 0x2c5d]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rdx, r12
+ mov rsi, r13
+ mov eax, 0
+ call 0x4427
+ mov r12d, 1
+ jmp LABEL63
+LABEL124:
+ mov edx, 5
+ lea rsi, [rip + 0x2c59]
+ call 0x23c0
+ mov rdi, rax
+ mov eax, 0
+ call 0x4427
+ mov r12d, 1
+ jmp LABEL63
+LABEL130:
+ mov rdi, qword [rbx + 0x30]
+ call 0x2320
+ mov qword [rbx + 0x30], 0
+ mov edx, 5
+ lea rsi, [rip + 0x2c57]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rsi, r13
+ mov eax, 0
+ call 0x4427
+ mov r12d, 1
+ jmp LABEL63
+LABEL132:
+ mov rdi, rbp
+ call 0x25d0
+ jmp LABEL210

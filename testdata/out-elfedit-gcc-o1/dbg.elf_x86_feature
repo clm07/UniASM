@@ -1,0 +1,66 @@
+ .name dbg.elf_x86_feature
+ .offset 00000000000028e6
+ .file elfedit-gcc-o1
+ push rbp
+ push rbx
+ sub rsp, 8
+ mov rbp, rdi
+ mov ebx, esi
+ lea rsi, [rip + 0x4780]
+ call 0x2330
+ test eax, eax
+ cjmp LABEL8
+ lea rsi, [rip + 0x4774]
+ mov rdi, rbp
+ call 0x2330
+ test eax, eax
+ cjmp LABEL13
+ lea rsi, [rip + 0x4767]
+ mov rdi, rbp
+ call 0x2330
+ test eax, eax
+ cjmp LABEL18
+ lea rsi, [rip + 0x475c]
+ mov rdi, rbp
+ call 0x2330
+ test eax, eax
+ cjmp LABEL23
+ mov eax, 8
+ jmp LABEL25
+LABEL23:
+ mov edx, 5
+ lea rsi, [rip + 0x4745]
+ mov edi, 0
+ call 0x23c0
+ mov rdi, rax
+ mov rsi, rbp
+ mov eax, 0
+ call 0x4427
+ mov eax, 0xffffffff
+ jmp LABEL35
+LABEL8:
+ mov eax, 1
+LABEL25:
+ test ebx, ebx
+ cjmp LABEL38
+ or dword [rip + 0x88a7], eax
+ not eax
+ and dword [rip + 0x889b], eax
+ mov eax, 0
+LABEL35:
+ add rsp, 8
+ pop rbx
+ pop rbp
+ ret
+LABEL13:
+ mov eax, 2
+ jmp LABEL25
+LABEL18:
+ mov eax, 4
+ jmp LABEL25
+LABEL38:
+ or dword [rip + 0x887b], eax
+ not eax
+ and dword [rip + 0x8877], eax
+ mov eax, ebx
+ jmp LABEL35

@@ -1,0 +1,111 @@
+ .name dbg.usage
+ .offset 00000000000029b1
+ .file elfedit-gcc-o1
+ push r15
+ push r14
+ push r13
+ push r12
+ push rbp
+ push rbx
+ sub rsp, 8
+ mov r14, rdi
+ mov r15d, esi
+ mov esi, 0
+ lea rdi, [rip + 0x4656]
+ mov eax, 0
+ call 0x6503
+ mov rbx, rax
+ lea rbp, [rip + 0x8193]
+ lea r13, [rbp + 0xf0]
+ lea r12, [rip + 0x46b8]
+LABEL27:
+ mov r8d, 0
+ mov rcx, qword [rbp]
+ mov rdx, r12
+ mov rsi, rbx
+ mov rdi, rbx
+ mov eax, 0
+ call 0x669e
+ mov rbx, rax
+ add rbp, 0x10
+ cmp rbp, r13
+ cjmp LABEL27
+ mov rbp, qword [rip + 0x877d]
+ mov edx, 5
+ lea rsi, [rip + 0x4841]
+ mov edi, 0
+ call 0x23c0
+ mov rdx, rax
+ mov rcx, rbp
+ mov esi, 1
+ mov rdi, r14
+ mov eax, 0
+ call 0x25a0
+ mov edx, 5
+ lea rsi, [rip + 0x483b]
+ mov edi, 0
+ call 0x23c0
+ mov rdx, rax
+ mov esi, 1
+ mov rdi, r14
+ mov eax, 0
+ call 0x25a0
+ mov edx, 5
+ lea rsi, [rip + 0x4625]
+ mov edi, 0
+ call 0x23c0
+ mov rdx, rax
+ mov esi, 1
+ mov rdi, r14
+ mov eax, 0
+ call 0x25a0
+ mov edx, 5
+ lea rsi, [rip + 0x480d]
+ mov edi, 0
+ call 0x23c0
+ mov rdx, rax
+ mov r8, rbx
+ mov rcx, rbx
+ mov esi, 1
+ mov rdi, r14
+ mov eax, 0
+ call 0x25a0
+ mov edx, 5
+ lea rsi, [rip + 0x49e4]
+ mov edi, 0
+ call 0x23c0
+ mov rdx, rax
+ mov esi, 1
+ mov rdi, r14
+ mov eax, 0
+ call 0x25a0
+ mov rbp, qword [rip + 0x8696]
+ mov edx, 5
+ lea rsi, [rip + 0x4a82]
+ mov edi, 0
+ call 0x23c0
+ mov rdx, rax
+ mov rcx, rbp
+ mov esi, 1
+ mov rdi, r14
+ mov eax, 0
+ call 0x25a0
+ test r15d, r15d
+ cjmp LABEL89
+LABEL104:
+ mov rdi, rbx
+ call 0x2320
+ mov edi, r15d
+ call 0x2580
+LABEL89:
+ mov edx, 5
+ lea rsi, [rip + 0x4567]
+ mov edi, 0
+ call 0x23c0
+ mov rdx, rax
+ lea rcx, [rip + 0x4aa3]
+ mov esi, 1
+ mov rdi, r14
+ mov eax, 0
+ call 0x25a0
+ jmp LABEL104

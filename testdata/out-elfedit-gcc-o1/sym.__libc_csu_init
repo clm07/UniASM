@@ -1,0 +1,39 @@
+ .name sym.__libc_csu_init
+ .offset 0000000000006a80
+ .file elfedit-gcc-o1
+ endbr64
+ push r15
+ lea r15, [rip + 0x40c3]
+ push r14
+ mov r14, rdx
+ push r13
+ mov r13, rsi
+ push r12
+ mov r12d, edi
+ push rbp
+ lea rbp, [rip + 0x40b4]
+ push rbx
+ sub rbp, r15
+ sub rsp, 8
+ call 0x2000
+ sar rbp, 3
+ cjmp LABEL16
+ xor ebx, ebx
+ nop dword [rax]
+LABEL25:
+ mov rdx, r14
+ mov rsi, r13
+ mov edi, r12d
+ call qword [r15 + rbx*8]
+ add rbx, 1
+ cmp rbp, rbx
+ cjmp LABEL25
+LABEL16:
+ add rsp, 8
+ pop rbx
+ pop rbp
+ pop r12
+ pop r13
+ pop r14
+ pop r15
+ ret
